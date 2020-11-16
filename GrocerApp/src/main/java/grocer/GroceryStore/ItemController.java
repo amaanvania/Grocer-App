@@ -39,7 +39,7 @@ class ItemController {
 
     @RequestMapping("/itemController")
     public String home(Model model) {
-    	model.addAttribute("items", repository.findAll());
+    	model.addAttribute("items",  repository.findAll());
     	return "items";
     }
     @PostMapping("/saveItem")
