@@ -6,7 +6,7 @@
 <title>Home</title>
 </head>
 <body>
- <h2>App Title</h2>
+ <h2>App Test</h2>
     <table id="myTable">
         <thead>
          <tr>
@@ -16,17 +16,11 @@
         </tr>
         </thead>
         <tbody>
-          <tr th:each="user : ${managers}">
-             <td th:text="${user.id}">Id</td>
-             <td th:text="${user.firstName}">First Name</td>
-             <td th:text="${user.lastName}">Last Name</td>
-             <td><button onclick="deleteRow(this)">Remove</button></td>         
-                 <!-- <td>
-                    <form method="DELETE" th:action="@{/removeManager}">
-                        <button type="submit" onClick="return confirm('sure?')">Remove</button>
-                    </form>
-                </td> -->
-          </tr>
+          <tr th:each="item : ${items}"action = "@{/itemController}">
+             <td th:text="${item.id}">Item Id</td>
+             <td th:text="${item.name}">Product Name</td>
+             <td th:text="${item.expiry_date}">Expiry (MM-YY)</td>         
+              </tr>
           
         </tbody> 
         <form method="DELETE" th:action = "@{/removeManager/{id}}">

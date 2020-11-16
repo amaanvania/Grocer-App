@@ -36,7 +36,7 @@ public class ManagerController {
         
     }
     
-    @RequestMapping("/")
+    @RequestMapping("/managerController")
     public String home(Model model) {
     	model.addAttribute("managers", repository.findAll());
     	return "index";
@@ -52,7 +52,7 @@ public class ManagerController {
         return "redirect:/";
     }
     
-    @GetMapping("/")
+    @GetMapping("/GetManagers")
     public String get(Model model) {
     	model.addAttribute("managers", repository.findAll());
     	return "index";
