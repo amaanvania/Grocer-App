@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+   xmlns:th="http://www.thymeleaf.org">
+
+   
+   
+   
+   <!DOCTYPE html>
 <html>
 <head>
 <title>wasteLess</title>
@@ -243,15 +250,52 @@ header .logo span {
 		position: relative;
 	}
 }
+#removeButton{
+  background-color: #FFA500;
+  border: none;
+  color: white;
+  padding: 10px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 
+#tabHead{
+  background-color: #FFA500;
+  border: none;
+  color: white;
+}
+
+.Thead{
+width: 1500px;
+}
+
+.formDiv1{
+  border-radius: 25px;
+  background: #FFA500;
+  padding: 20px;
+  width: 200px;
+  height: 200px;
+  }
+.formDiv2{
+  border-radius: 25px;
+  background: #FFA500;
+  padding: 20px;
+  width: 200px;
+  height: 100px;
+  }
 
 </style>
 
-
-
-
 </head>
 <body>
+
+
+
+
 <header>
 		<div class="logo">Waste<span>Less</span></div>
 	</header>
@@ -267,64 +311,85 @@ header .logo span {
 					<li><a href="comingsoon.html">About</a></li>
 					<li><a href="comingsoon.html">Settings</a></li>
 					<li><a href="comingsoon.html">Help</a></li>
+				
+				<li> 
+		<div class= "formDiv1">
+        <form method="POST" th:action = "@{/Items}">
+    		First Name:<br>
+    		<input type="text" id="Item Id" name="id">
+    		<br>Last Name:<br>
+    		<input type="text" id="Product Name" name="item_name">
+			<br>Store Id:<br>
+    		<input type="text" id="Quantity" name="category_number">
+    		<br>Store Id:<br>
+    		<input type="text" id="Expiry" name="expiry_date">    		
+    		<input type="submit" value="save">
+		</form>
+		
+			
+		</div>
+		</li>
+		<li>
+		<div class= "formDiv2">
+	    <form method="DELETE" th:action = "@{/Items/{id}}">
+    		Delete ID:<br>
+    		<input type="text" id="id" name="id">
+    		
+    		<input type="submit" value="save"><br>
+		</form>
+		</div>
+		</li>		
+				
+				
+				
 				</ul>
 			</nav>
 		</div>
 
 		<div class="main-content">
-			<h1>DASHBOARD</h1>
+			<h1>ORDERS</h1>
 			<p>Recycle. Reduce. Reuse</p>
-			<a href="https://www.theguardian.com/international">
-			<div class="panel-wrapper">
-				<div class="panel-head">
-					News
-				</div>
-				</a>
-				<div class="panel-body">
-					Breaking News, Latest News, Blogs and Videos
-				</div>
-			</div>
-			
-
+		
 			<section class="page-content">
+			
+			
 			<table> 
-			<tr>
-			<td>
-			<a href="getOrders">
-			<div>
-			<div class="panel-wrapper">
-				<div class="panel-head">
-					Orders
-				</div>
-			
-			<div class="panel-body">
-			<img src=src= "../static/images/orderCheck.png" width="200" height="150" th:src="@{images/orderCheck.png}">
-			</a>
-			</div>
-			</div>
-			</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>
-			
-			<a href="inventory">
-			<div>
-			<div class="panel-wrapper">
-				<div class="panel-head">
-					Inventory
-				</div>
-				
-			<div class="panel-body">
-			<img src= "../static/images/indexTablepng.png" width="200" height="150" th:src="@{images/indexTablepng.png}" >
-			</a>
-			</div>
-			</div>
-			</td>
-			</tr>
-			</table>
+			<thead id= "tabHead">
+         	<tr>
+           <th class="Thead">Order ID</th>
+           <th class="Thead">Food bank name</th>
+           <th class="Thead">Pickup Time</th> 
+           <th class="Thead">Pickup Date</th>  
+           </tr>
+      		</thead>
+      		
+      		 <tbody>
+        <tbody>
+          <tr th:each="order : ${orders}"action = "@{/orders}">
+             <td th:text="${order.id}">Order ID</td>
+             <td th:text="${order.foodbank_name}">Food bank name</td>
+             <td th:text="${order.pickup_time}">Pickup Time</td>   
+             <td th:text="${order.pickup_date}">Pickup Date</td>              
+                 <td>
+                    <form method="DELETE" th:action="@{/Items/{id}}">
+                        <button id="removeButton" type="submit" onClick="return confirm('sure?')">Remove</button>
+                    </form>
+                </td>
+          </tr>
+          
+        </tbody> 
+        </table>
 
+		</br>
+		</br>
+<!--              -->
 			</div>		
 	</div>
-</body>
+	
+	</section>
+
+<!--  <h2>App Title</h2>  -->
+
+ 
+ </body>
 </html>

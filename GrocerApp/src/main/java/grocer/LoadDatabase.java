@@ -29,11 +29,11 @@ class LoadDatabase {
 
 		return args -> {
 
-			Address test1 = new Address("45 Overlea Blvd", "M4H 1C3", "Toronto");
-			Manager m1 = new Manager("Lionel", "Messi");
-			GroceryStore g1 = new GroceryStore(test1, "Food Basics");
-			groceryStoreRepository.save(g1);
-			m1.setG(g1);
+			//Address test1 = new Address("45 Overlea Blvd", "M4H 1C3", "Toronto");
+			//Manager m1 = new Manager("Lionel", "Messi");
+			///GroceryStore g1 = new GroceryStore(test1, "Food Basics");
+			//groceryStoreRepository.save(g1);
+			//m1.setG(g1);
 			/*Date d = new Date();
 			d.setDate(15);
 			Order o = new Order("Salvation Army", Status.PENDING, d);

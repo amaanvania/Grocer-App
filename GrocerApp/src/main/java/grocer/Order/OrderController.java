@@ -40,10 +40,10 @@ class OrderController {
         this.orderRepository = orderRepository;
         this.assembler = assembler;
     }
-    @RequestMapping("/orderController")
+    @RequestMapping("/getOrders")
     public String home(Model model) {
     	model.addAttribute("orders", orderRepository.findAll());
-    	return "index";
+    	return "ordersPage";
     }
     @PostMapping("/saveOrder")
     public String saveOrder(@ModelAttribute("orders") Order order) {

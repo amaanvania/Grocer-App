@@ -32,19 +32,19 @@ public class Order {
 	
 	@Id 
 	@GeneratedValue(generator = "gen")
-	private Long id;
+	public Long id;
 
 	@Column(name = "Foodbank_Name")
-	private String foodbank_name;
+	public String foodbank_name;
 
 	@Column(name = "Order_Status")
-	private Status status;
+	public Status status;
 
 	/*
 	 * private ArrayList<String> items; private ArrayList<Integer> quantities;
 	 */
-	private Date pickup_time;
-
+	public String pickup_time;
+	public String pickup_date;
 	@ManyToOne
 	private GroceryStore g;
 
@@ -78,7 +78,7 @@ public class Order {
 		this.g = g;
 	}
 
-	public Order(String name, Status status, Date pickup_time) {
+	public Order(String name, Status status, String pickup_time, String pickup_date) {
 		super();
 		this.foodbank_name = name;
 		this.status = status;
@@ -96,7 +96,7 @@ public class Order {
 	 * public void setQuantities(ArrayList<Integer> quantities) { this.quantities =
 	 * quantities; }
 	 */
-	public Date getPickup_time() {
+	public String getPickup_time() {
 		return pickup_time;
 	}
 	
@@ -109,7 +109,7 @@ public class Order {
 		this.status = Status.CANCELLED;
 	}
 	
-	public void setPickup_time(Date pickup_time) {
+	public void setPickup_time(String pickup_time) {
 		this.pickup_time = pickup_time;
 	}
 
@@ -121,13 +121,21 @@ public class Order {
 		return this.status;
 	}
 
-	public Date getPickupTime() {
+	public String getPickupTime() {
 		return this.pickup_time;
 
 	}
 
-	public void setPickupTime(Date d) {
+	public void setPickupTime(String d) {
 		this.pickup_time = d;
+	}
+
+	public String getPickup_date() {
+		return pickup_date;
+	}
+
+	public void setPickup_date(String pickup_date) {
+		this.pickup_date = pickup_date;
 	}
 
 	public void setId(Long id) {
