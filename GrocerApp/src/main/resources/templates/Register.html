@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>wasteLess</title>
+<!-- <link rel="stylesheet" href="myStylesLogin.css"> -->
+<script>
+
+
+$(document).ready(function() {
+	$('.nav-btn').on('click', function(event) {
+		event.preventDefault();
+		/* Act on the event */
+		$('.sidebar').slideToggle('fast');
+
+		window.onresize = function(){
+			if ($(window).width() >= 768) {
+				$('.sidebar').show();
+			} else {
+				$('.sidebar').hide();
+			}
+		};
+	});
+});
+
+</script>
+
+
+<style>
+@import 'https://fonts.googleapis.com/css?family=Lato:300,400';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+
+background-color: #302F2F;
+
+
+}
+body, html {
+	font-family: 'Lato', sans-serif;
+	font-size: 20px;
+	height: 100%;
+	position: relative;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+a {
+	color: #fff;
+	text-decoration: none; 
+}
+
+
+
+
+
+
+
+.main-content {
+	background-color: #fafafa;
+	width: calc(100% - 250px);
+	height: 100%;
+	margin-left: 100px;
+	margin-top:100px;
+	padding: 20px 30px;
+	border-radius: 25px;
+	
+	
+}
+.main-content .panel-wrapper {
+	margin: 20px 0;
+	box-shadow: 0px 1px 5px #777;
+}
+
+.main-content .panel-wrapper .panel-head {
+	background-color: #FFA500;
+	color: #fff;
+	padding: 10px 10px;
+	border: 1px solid #00A5F2;
+}
+.main-content .panel-wrapper .panel-body {
+	padding: 20px 10px;
+	font-size: 80%;
+}
+
+@media only screen and (max-width: 420px){
+	header {
+		display: block;
+	}
+	.nav-btn {
+		display: block;
+	}
+	.sidebar {
+		position: relative;
+		height: 378px;
+		width: 100%;
+		display: none;
+		margin-bottom: 40px;
+		z-index: 1000;
+	}
+	.main-content {
+		width: 100%;
+		margin-left: 0;
+		z-index: -1;
+		position: relative;
+	}
+}
+
+@media only screen and (max-width: 768px){
+	header {
+		display: block;
+	}
+	.nav-btn {
+		display: block;
+	}
+	
+	.main-content {
+		width: 100%;
+		margin-left: 0;
+		z-index: -1;
+		position: relative;
+	}
+}
+
+
+</style>
+
+
+
+
+</head>
+<body>
+
+	<div class="container">
+	
+
+		<div class="main-content">
+			<h1>Contact</h1>
+			<p>Please contact the admininstrators to help you set up an acount with wasteLess</p>
+			<div class="panel-wrapper">
+				<div class="panel-head">
+					Email:
+				</div>
+				<div class="panel-body">
+					<div id="contactf" align="left">
+					</br>
+
+					<h1></h1>
+					
+					<h4>Amaan Vania:	amaanv@hotmail.com</h4>
+					</br>
+					<h4>Henry Xiong: 	henryxzxiong@hotmail.com</h4>
+					</br>
+					<h4>Areeba Abidi:	abidiare@my.yorku.ca</h4> 
+					</br>
+					</br>
+
+					 </div>
+					
+					
+					
+					
+					
+					
+				</div>
+			</div>
+			
+
+			</div>
+			
+
+			</div>		
+	
+</body>
+</html>

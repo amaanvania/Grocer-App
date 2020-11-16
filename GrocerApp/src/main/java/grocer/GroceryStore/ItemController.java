@@ -36,11 +36,19 @@ class ItemController {
         this.assembler = assembler;
         
     }
-
-    @RequestMapping("/itemController")
+    
+    @RequestMapping("/home")
+    public String home() {
+    	return "index";
+    }
+    @RequestMapping("/dash")
+    public String dash() {
+    	return "dash";
+    }
+    @RequestMapping("/inventory")
     public String home(Model model) {
     	model.addAttribute("items",  repository.findAll());
-    	return "items";
+    	return "items2";
     }
     @PostMapping("/saveItem")
     public String saveItem(@ModelAttribute("items") Item item) {

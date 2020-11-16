@@ -16,11 +16,11 @@
         </tr>
         </thead>
         <tbody>
-          <tr th:each="item : ${items}"action = "@{/itemController}">
+          <tr th:each="item : ${items}"action = "@{/inventory}">
              <td th:text="${item.id}">Item Id</td>
              <td th:text="${item.name}">Product Name</td>
              <td th:text="${item.expiry_date}">Expiry (MM-YY)</td>         
-              </tr>
+         </tr>
           
         </tbody> 
         <form method="DELETE" th:action = "@{/removeManager/{id}}">
