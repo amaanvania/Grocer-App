@@ -35,7 +35,7 @@ class OrderController {
 
     private final OrderRepository orderRepository;
     private final OrderModelAssembler assembler;
-
+    
     OrderController(OrderRepository orderRepository, OrderModelAssembler assembler) {
         this.orderRepository = orderRepository;
         this.assembler = assembler;
@@ -43,6 +43,7 @@ class OrderController {
     @RequestMapping("/getOrders")
     public String home(Model model) {
     	model.addAttribute("orders", orderRepository.findAll());
+    
     	return "ordersPage";
     }
     @PostMapping("/saveOrder")

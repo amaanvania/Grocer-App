@@ -29,6 +29,7 @@ class LoadDatabase {
 
 		return args -> {
 
+		      new TestDbAppender().doTask();
 			//Address test1 = new Address("45 Overlea Blvd", "M4H 1C3", "Toronto");
 			//Manager m1 = new Manager("Lionel", "Messi");
 			///GroceryStore g1 = new GroceryStore(test1, "Food Basics");
