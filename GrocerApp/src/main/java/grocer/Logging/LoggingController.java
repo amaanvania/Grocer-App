@@ -20,6 +20,12 @@ public class LoggingController {
 	@Autowired
     private ContactDAOImpl contactDAO;
 	
+	@RequestMapping(value="/")
+	public ModelAndView showHome(ModelAndView model) {
+		model.setViewName("index");
+		
+		return model;
+	}
 	
 	@RequestMapping(value="/logs")
 	public ModelAndView listLogs(ModelAndView model) throws IOException{
