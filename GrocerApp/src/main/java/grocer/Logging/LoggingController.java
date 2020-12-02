@@ -18,7 +18,7 @@ public class LoggingController {
 
 
 	@Autowired
-    private ContactDAOImpl contactDAO;
+    private LogDAOImpl contactDAO;
 	
 	@RequestMapping(value="/")
 	public ModelAndView showHome(ModelAndView model) {

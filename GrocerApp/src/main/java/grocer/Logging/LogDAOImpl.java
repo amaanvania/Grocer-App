@@ -20,11 +20,11 @@ import org.springframework.jdbc.core.RowMapper;
  * @author www.codejava.net
  *
  */
-public class ContactDAOImpl{
+public class LogDAOImpl{
  
     private JdbcTemplate jdbcTemplate;
  
-    public ContactDAOImpl(DataSource dataSource) {
+    public LogDAOImpl(DataSource dataSource) {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
  
