@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 public class TestDbAppender {
 
 	   private static final Logger logger = LoggerFactory.getLogger(TestDbAppender.class);
-
 	   public TestDbAppender() {
 	      logger.info("Class instance created at {}", 
 	                DateFormat.getInstance().format(new Date()));
