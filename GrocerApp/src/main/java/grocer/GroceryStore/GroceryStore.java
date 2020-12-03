@@ -26,7 +26,7 @@ public class GroceryStore {
 	@Column(name = "Grocery_Store_Name")
 	public String name;
 	
-	@OneToOne(cascade = {CascadeType.ALL})
+	@OneToOne(cascade = {CascadeType.MERGE})
 	public Address address;
 	
 	

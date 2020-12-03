@@ -29,17 +29,17 @@ class LoadDatabase {
 
 		return args -> {
 
-		      new TestDbAppender().doTask();
-			//Address test1 = new Address("45 Overlea Blvd", "M4H 1C3", "Toronto");
-			//Manager m1 = new Manager("Lionel", "Messi");
-			///GroceryStore g1 = new GroceryStore(test1, "Food Basics");
-			//groceryStoreRepository.save(g1);
-			//m1.setG(g1);
-			/*Date d = new Date();
+		     /*new TestDbAppender().doTask();
+			Address test1 = new Address("45 Overlea Blvd", "M4H 1C3", "Toronto");
+			Manager m1 = new Manager("Lionel", "Messi");
+			GroceryStore g1 = new GroceryStore(test1, "Food Basics");
+			groceryStoreRepository.save(g1);
+			m1.setG(g1);
+			Date d = new Date();
 			d.setDate(15);
-			Order o = new Order("Salvation Army", Status.PENDING, d);
+			Order o = new Order("Salvation Army", Status.PENDING, "","");
 			o.setG(g1);
-			Order o2 = new Order("Childrens Food Bank", Status.PENDING, d);
+			Order o2 = new Order("Childrens Food Bank", Status.PENDING, "","");
 			o2.setG(g1);
 			CustomerItem c = new CustomerItem("Kale", 3, 1);
 			CustomerItem c2 = new CustomerItem("Salmon", 5, 1);
@@ -67,7 +67,7 @@ class LoadDatabase {
 			groceryStoreRepository.save(g3);
 			m2.setG(g3);
 
-			Order o3 = new Order("Daily Bread Food Bank", Status.COMPLETED, new Date());
+			Order o3 = new Order("Daily Bread Food Bank", Status.COMPLETED, "","");
 			o3.setG(g3);
 
 			log.info("Preloading " + ManagerRepository.save(m1));

@@ -83,7 +83,9 @@ public class Order {
 		this.foodbank_name = name;
 		this.status = status;
 		this.pickup_time = pickup_time;
+		this.pickup_date = pickup_date;
 	}
+
 
 	/*
 	 * public ArrayList<String> getItems() { return items; }

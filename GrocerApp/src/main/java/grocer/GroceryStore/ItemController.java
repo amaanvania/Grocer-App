@@ -5,7 +5,10 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -21,7 +24,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Controller
@@ -34,7 +40,6 @@ class ItemController {
     ItemController(ItemRepository repository, ItemModelAssembler assembler) {
         this.repository = repository;
         this.assembler = assembler;
-        
     }
     
     @RequestMapping("/home")
@@ -50,12 +55,26 @@ class ItemController {
     	model.addAttribute("items",  repository.findAll());
     	return "items2";
     }
-    @PostMapping("/saveItem")
-    public String saveItem(@ModelAttribute("items") Item item) {
-    	repository.save(item);
-    	return "redirect:/";
-    }
+    @RequestMapping(value = "/addItem", method = RequestMethod.POST)
+    public String greetingSubmit(HttpServletRequest request) {
+    	Map<String, String[]> parameterMap = request.getParameterMap();
+    	
+    	String name = parameterMap.get("item_name")[0];
 
+    	String q = parameterMap.get("category_number")[0];
+    	int quantity = Integer.parseInt(q);
+
+    	String date = parameterMap.get("expiry_date")[0];
+
+    	repository.save(new Item(name,quantity,date));
+      return "redirect:/inventory";  
+    }
+    
+    @RequestMapping(value = "/deleteitem", method = RequestMethod.POST)
+    public String delete(@RequestParam Long id, ModelAndView model) {
+        repository.deleteById(id);
+        return "redirect:/inventory";      
+    }
     // Aggregate root
 
     @GetMapping("/Items")
@@ -110,9 +129,4 @@ class ItemController {
         
     }
 
-    @DeleteMapping("/Items/{id}")
-    ResponseEntity<?> deleteItem(@PathVariable Long id) {
-        repository.deleteById(id);
-        return ResponseEntity.noContent().build();
-    }
 }

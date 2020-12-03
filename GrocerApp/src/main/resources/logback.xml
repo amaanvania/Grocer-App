@@ -13,7 +13,7 @@
             <dataSource class="com.alibaba.druid.pool.DruidDataSource">
                 <!-- Attribute configuration in DruidDataSource -->
                 <driverClassName>com.mysql.jdbc.Driver</driverClassName>
-                <url>jdbc:mysql://database-1.cg2vn0m8owc4.us-east-1.rds.amazonaws.com:3306/logs</url>
+                <url>jdbc:mysql://database-1.cg2vn0m8owc4.us-east-1.rds.amazonaws.com:3306/dbname</url>
                 <username>admin</username>
                 <password>55555555</password>
             </dataSource>

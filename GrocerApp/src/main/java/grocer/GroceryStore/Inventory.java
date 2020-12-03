@@ -8,8 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import grocer.GroceryStore.*;
 
 @Entity
 @Table(name = "INVENTORIES")
@@ -18,14 +20,14 @@ public class Inventory {
 
 	private @Id @GeneratedValue Long id;
 	
-	@OneToOne(cascade = {CascadeType.ALL})
+	@OneToOne(cascade = {CascadeType.MERGE})
 	public Item item;
 	
 	
 	public int quantity;
 	
 
-	@OneToOne(cascade = {CascadeType.ALL})
+	@OneToOne(cascade = {CascadeType.MERGE})
 	private GroceryStore g;
 	
 	public GroceryStore getG() {
